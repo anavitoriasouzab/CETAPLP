@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only" />
+<meta name="supported-color-schemes" content="light" />
+<meta name="theme-color" content="#FBF5EC" />
+<title>CeUnina em Tapauá · Polo CETAP | Graduação e Pós-graduação</title>
+<meta name="description" content="CeUnina, Centro Universitário Nelson Akiyoshi, credenciada pelo MEC, com apoio local do CETAP em Tapauá (AM) para graduação e pós-graduação, e polo ampliado de pós em Manaus." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet" />
+<style>
+  :root { color-scheme: light only; }
+  html { scroll-behavior: smooth; background: #FBF5EC; color-scheme: light only; forced-color-adjust: none; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #FBF5EC; color: #1C2333; font-family: "Plus Jakarta Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; color-scheme: light only; }
+  input, select, textarea, button { color-scheme: light only; }
+  @media (prefers-color-scheme: dark) {
+    html, body { background: #FBF5EC; color: #1C2333; }
+  }
+  * { box-sizing: border-box; }
+  a { color: #14367A; text-decoration: none; }
+  a:hover { color: #C23E17; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, h4, h5 { font-family: "Bricolage Grotesque", "Plus Jakarta Sans", sans-serif; margin: 0; color: #0B1D3F; line-height: 1.08; letter-spacing: -0.01em; }
+  p { margin: 0; line-height: 1.65; color: #4A5268; text-wrap: pretty; }
+  button { font-family: inherit; }
+  input, select, textarea { font-family: inherit; }
+  :focus-visible { outline: 3px solid #FFC107; outline-offset: 2px; border-radius: 6px; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+
+<div style="background:#FBF5EC">
+
+<header style="position:sticky;top:0;z-index:120;background:rgba(251,245,236,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,54,122,0.09)">
+  <div style="max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+      <img src="assets/img0.png" alt="CETAP, Centro Educacional de Tapauá" style="height:30px;width:auto" />
+      <span style="width:1px;height:24px;background:#E7DFCF;display:block"></span>
+      <img src="assets/img1.png" alt="CeUnina, Centro Universitário Nelson Akiyoshi" style="height:26px;width:auto" />
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:22px">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+          <sc-if value="{{ n.on }}">
+            <a href="{{ n.href }}" style="position:relative;font-size:14.5px;font-weight:700;color:#C23E17;white-space:nowrap;padding-bottom:4px;border-bottom:2px solid #C23E17">{{ n.label }}</a>
+          </sc-if>
+          <sc-if value="{{ n.off }}">
+            <a href="{{ n.href }}" style="position:relative;font-size:14.5px;font-weight:600;color:#122A54;white-space:nowrap;padding-bottom:4px;border-bottom:2px solid transparent" style-hover="color:#C23E17;border-bottom-color:rgba(194,62,23,0.35)">{{ n.label }}</a>
+          </sc-if>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="{{ waGeral }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#C23E17;color:#fff;font-weight:700;font-size:14px;padding:11px 18px;border-radius:100px;box-shadow:0 10px 22px -10px rgba(194,62,23,0.55)" style-hover="background:#A5320F">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.35-.35.52-.52.17-.18.23-.3.35-.5.11-.2.06-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41z" /></svg>
+        <span>WhatsApp</span>
+      </a>
+      <sc-if value="{{ narrow }}">
+        <sc-if value="{{ menuClosed }}">
+          <button type="button" aria-label="Abrir menu" onClick="{{ toggleMenu }}" style="background:none;border:none;cursor:pointer;width:44px;height:44px;color:#0B1D3F;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+          </button>
+        </sc-if>
+        <sc-if value="{{ menuOpen }}">
+          <button type="button" aria-label="Fechar menu" onClick="{{ toggleMenu }}" style="background:none;border:none;cursor:pointer;width:44px;height:44px;color:#C23E17;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:20px;height:20px"><path d="M6 6l12 12M18 6 6 18" /></svg>
+          </button>
+        </sc-if>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}">
+    <nav style="display:flex;flex-direction:column;padding:8px 16px 20px;background:#FBF5EC;border-top:1px solid #E7DFCF;box-shadow:0 16px 26px -18px rgba(11,29,63,0.35);max-height:calc(100vh - 70px);overflow-y:auto">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+        <sc-if value="{{ n.on }}">
+          <a href="{{ n.href }}" onClick="{{ n.close }}" style="display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 12px;font-size:16.5px;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.08);border-radius:12px">
+            {{ n.label }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="width:17px;height:17px"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </sc-if>
+        <sc-if value="{{ n.off }}">
+          <a href="{{ n.href }}" onClick="{{ n.close }}" style="display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 12px;font-size:16.5px;font-weight:600;color:#122A54;border-radius:12px;border-bottom:1px solid #F0E8DA" style-hover="background:#F4E9D8">
+            {{ n.label }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C9BFA9" stroke-width="2.4" style="width:17px;height:17px"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </sc-if>
+      </sc-for>
+      <button type="button" onClick="{{ openMatriculaMenu }}" style="display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;margin-top:14px;background:#C23E17;color:#fff;border:none;border-radius:100px;font-weight:700;font-size:15.5px;cursor:pointer;box-shadow:0 10px 22px -10px rgba(194,62,23,0.5)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M12 5v14M5 12h14" /></svg>
+        Quero me matricular
+      </button>
+    </nav>
+  </sc-if>
+</header>
+
+<section id="top" style="position:relative;background:linear-gradient(180deg,#071229 0%,#0B1D3F 55%,#14367A 100%);overflow:hidden">
+  <canvas ref="{{ canvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1"></canvas>
+  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 52%, rgba(255,193,7,0.12) 0%, rgba(11,29,63,0) 55%)"></div>
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;padding:72px 24px 0;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <div style="padding-bottom:96px;display:flex;flex-direction:column;align-items:center">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#FFD9A6;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:7px 14px;border-radius:100px">
+        <span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> CETAP Tapauá · Polos CeUnina em Tapauá e Manaus, AM
+      </span>
+      <h1 style="margin-top:22px;font-size:clamp(36px,5vw,58px);font-weight:800;color:#fff;max-width:860px">Sua faculdade agora tem endereço no Amazonas.<span style="display:block;font-size:0.62em;font-style:italic;font-weight:500;color:#FFC107;margin-top:8px">Tapauá e Manaus, perto de você</span></h1>
+      <p style="color:#C7D2EA;font-size:18px;max-width:660px;margin-top:22px">Graduação e pós-graduação da CeUnina, credenciada pelo MEC: com o CETAP ao seu lado em Tapauá e um polo ampliado de pós-graduação em Manaus. Matrícula, documentação e estágio resolvidos perto de casa, em cursos EAD e semipresenciais.</p>
+      <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;justify-content:center">
+        <button type="button" onClick="{{ openMatricula }}" style="display:inline-flex;align-items:center;gap:10px;background:#C23E17;color:#fff;font-weight:700;font-size:15.5px;padding:15px 26px;border-radius:100px;border:none;cursor:pointer;box-shadow:0 10px 24px -8px rgba(194,62,23,0.5)" style-hover="background:#A5320F">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M12 5v14M5 12h14" /></svg>
+          Quero me matricular
+        </button>
+        <a href="{{ waCursos }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,0.35);background:rgba(255,255,255,0.05);color:#fff;font-weight:700;font-size:15.5px;padding:15px 26px;border-radius:100px" style-hover="background:rgba(255,255,255,0.14);color:#fff">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.35-.35.52-.52.17-.18.23-.3.35-.5.11-.2.06-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41z" /></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:34px;justify-content:center">
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:#B9C6E3;font-weight:600"><svg viewBox="0 0 24 24" fill="#FFC107" style="width:17px;height:17px"><path d="M12 2 2 7v6c0 5.25 3.6 9.74 10 11 6.4-1.26 10-5.75 10-11V7l-10-5Z" /></svg> Portaria MEC nº 905/2025</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:#B9C6E3;font-weight:600"><svg viewBox="0 0 24 24" fill="#FFC107" style="width:17px;height:17px"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.62 6.5 11.54 7.06 12.04a.68.68 0 0 0 .88 0C13 21.04 19.5 15.12 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" /></svg> Graduação em Tapauá · Pós em Tapauá e Manaus</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:#B9C6E3;font-weight:600"><svg viewBox="0 0 24 24" fill="#FFC107" style="width:17px;height:17px"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Matrícula direto pelo WhatsApp</span>
+      </div>
+    </div>
+  </div>
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="display:block;width:100%;height:auto;position:relative;z-index:3"><path fill="#FBF5EC" d="M0,64 C280,10 480,10 720,40 C960,70 1160,70 1440,20 L1440,90 L0,90 Z" /></svg>
+</section>
+
+<div style="max-width:1180px;margin:0 auto;padding:0 24px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));background:#fff;border-radius:18px;box-shadow:0 10px 30px -12px rgba(11,29,63,0.25);margin-top:-58px;position:relative;z-index:5;padding:8px">
+    <div style="display:flex;flex-direction:column;gap:6px;padding:22px 24px">
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#122A54">MEC 905/2025</span>
+      <span style="font-size:12.5px;color:#4A5268;font-weight:600">Portaria de credenciamento</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:22px 24px;border-left:1px solid #E7DFCF">
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#122A54">Curitiba → Amazonas</span>
+      <span style="font-size:12.5px;color:#4A5268;font-weight:600">Sede da CeUnina e apoio local do CETAP</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:22px 24px;border-left:1px solid #E7DFCF">
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#122A54">40 + 80 cursos</span>
+      <span style="font-size:12.5px;color:#4A5268;font-weight:600">Graduação e pós-graduação</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:22px 24px;border-left:1px solid #E7DFCF">
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#122A54">EAD · Semipresencial</span>
+      <span style="font-size:12.5px;color:#4A5268;font-weight:600">Modalidades compatíveis com sua rotina</span>
+    </div>
+  </div>
+</div>
+
+<section id="sobre" style="padding:92px 0 0;scroll-margin-top:88px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="max-width:660px;margin-bottom:44px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px">
+        <span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Instituição e polo de apoio
+      </span>
+      <h2 style="font-size:clamp(28px,3.4vw,40px);margin-top:18px">Uma faculdade nacional, com <span style="font-style:italic;font-weight:500;color:#EF5A2B">rosto e endereço</span> em Tapauá.</h2>
+      <p style="margin-top:16px;font-size:16.5px">A CeUnina é a instituição de ensino, responsável pelo currículo, pelo corpo docente e pelo diploma reconhecido. O CETAP é quem recebe você na cidade: organiza a matrícula, acompanha a documentação e orienta o estágio sem que você precise viajar.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:stretch">
+      <div style="position:relative;border-radius:28px;overflow:hidden;min-height:340px;box-shadow:0 18px 44px -20px rgba(11,29,63,0.35)">
+        <img src="assets/img2.jpg" alt="Estudante da CeUnina estudando em casa pelo ensino a distância" style="width:100%;height:100%;object-fit:cover;object-position:center 20%" />
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,29,63,0) 40%,rgba(11,29,63,0.82) 100%)"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px">
+          <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,193,7,0.95);color:#0B1D3F;font-size:11.5px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:100px">Turmas em formação</span>
+          <p style="color:#fff;font-size:15.5px;font-weight:600;margin-top:12px">Estude de casa e resolva tudo no polo, a poucos minutos de você.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:28px;padding:26px 28px">
+        <span style="display:block;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:800;color:#9A917F">A parceria</span>
+        <div style="display:flex;flex-direction:column;gap:18px;margin-top:18px">
+          <div style="display:flex;align-items:center;gap:18px">
+            <span style="width:104px;height:58px;border:1px solid #F0E8DA;background:#FBF5EC;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0"><img src="assets/img1.png" alt="CeUnina" style="max-height:100%;width:auto" /></span>
+            <span style="display:flex;flex-direction:column;gap:4px">
+              <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong style="font-size:15px;color:#0B1D3F">CeUnina</strong><span style="font-size:10.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#14367A;background:rgba(20,54,122,0.08);padding:3px 8px;border-radius:100px">Instituição de ensino</span></span>
+              <span style="font-size:13px;color:#4A5268;line-height:1.5">Centro Universitário Nelson Akiyoshi, em Curitiba (PR). Responsável pelo curso, corpo docente e diploma.</span>
+            </span>
+          </div>
+          <span style="display:flex;align-items:center;gap:12px"><span style="flex:1;height:1px;background:#F0E8DA;display:block"></span><span style="font-size:11px;font-weight:800;letter-spacing:0.12em;color:#C9BFA9">EM PARCERIA</span><span style="flex:1;height:1px;background:#F0E8DA;display:block"></span></span>
+          <div style="display:flex;align-items:center;gap:18px">
+            <span style="width:104px;height:58px;border:1px solid #F0E8DA;background:#FBF5EC;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0"><img src="assets/img0.png" alt="CETAP" style="max-height:100%;width:auto" /></span>
+            <span style="display:flex;flex-direction:column;gap:4px">
+              <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><strong style="font-size:15px;color:#0B1D3F">CETAP</strong><span style="font-size:10.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#C23E17;background:rgba(239,90,43,0.1);padding:3px 8px;border-radius:100px">Polo presencial</span></span>
+              <span style="font-size:13px;color:#4A5268;line-height:1.5">Centro Educacional de Tapauá, em Tapauá (AM). Matrícula, documentação e orientação de estágio.</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid #E7DFCF;border-radius:28px;padding:30px;justify-content:center">
+        <h3 style="font-size:21px">Por que estudar pela CeUnina com apoio do CETAP</h3>
+        <p style="font-size:15.5px">Você se matricula em uma instituição credenciada pelo MEC, com cursos de graduação, pós-graduação e extensão, e resolve o dia a dia com uma equipe presente na sua cidade.</p>
+        <p style="font-size:15.5px">Menos burocracia a distância e mais suporte presencial para esclarecer dúvidas, orientar o estágio e acompanhar seu progresso até a formatura.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:44px 0 92px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px">
+    <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:28px 26px" style-hover="box-shadow:0 10px 30px -12px rgba(11,29,63,0.25);transform:translateY(-4px)">
+      <div style="width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(239,90,43,0.12);margin-bottom:16px"><svg viewBox="0 0 24 24" fill="#EF5A2B" style="width:23px;height:23px"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.62 6.5 11.54 7.06 12.04a.68.68 0 0 0 .88 0C13 21.04 19.5 15.12 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" /></svg></div>
+      <h3 style="font-size:18px">Apoio local, o tempo todo</h3>
+      <p style="margin-top:9px;font-size:14.5px">O CETAP acompanha matrícula, documentação e estágio sem que você precise sair de Tapauá.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:28px 26px" style-hover="box-shadow:0 10px 30px -12px rgba(11,29,63,0.25);transform:translateY(-4px)">
+      <div style="width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(20,54,122,0.1);margin-bottom:16px"><svg viewBox="0 0 24 24" fill="#14367A" style="width:23px;height:23px"><path d="M4 4h16v2H4V4Zm0 14h16v2H4v-2Zm2-10h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2Z" /></svg></div>
+      <h3 style="font-size:18px">Modalidades flexíveis</h3>
+      <p style="margin-top:9px;font-size:14.5px">Cursos 100% EAD e semipresenciais, pensados para conciliar trabalho, família e estudo.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:28px 26px" style-hover="box-shadow:0 10px 30px -12px rgba(11,29,63,0.25);transform:translateY(-4px)">
+      <div style="width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(27,138,77,0.12);margin-bottom:16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:23px;height:23px"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg></div>
+      <h3 style="font-size:18px">Estágio incluso</h3>
+      <p style="margin-top:9px;font-size:14.5px">Todas as licenciaturas possuem estágio obrigatório, com orientação da equipe local.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:28px 26px" style-hover="box-shadow:0 10px 30px -12px rgba(11,29,63,0.25);transform:translateY(-4px)">
+      <div style="width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(255,193,7,0.18);margin-bottom:16px"><svg viewBox="0 0 24 24" fill="#8A6008" style="width:23px;height:23px"><path d="M12 2 2 7v6c0 5.25 3.6 9.74 10 11 6.4-1.26 10-5.75 10-11V7l-10-5Z" /></svg></div>
+      <h3 style="font-size:18px">Reconhecimento MEC</h3>
+      <p style="margin-top:9px;font-size:14.5px">Credenciada pela Portaria MEC nº 905/2025, diploma com validade nacional.</p>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:88px 0;background:linear-gradient(180deg,#0B1D3F 0%,#122A54 100%);overflow:hidden">
+  <svg viewBox="0 0 1200 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.8">
+    <defs><linearGradient id="gradRoute" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFC107" /><stop offset="100%" stop-color="#EF5A2B" /></linearGradient></defs>
+    <path d="M0,360 C 280,285 350,150 620,140 C 890,130 960,55 1200,45" stroke="url(#gradRoute)" stroke-width="2" fill="none" stroke-dasharray="1 10" stroke-linecap="round" />
+  </svg>
+  <div style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="max-width:680px;margin-bottom:44px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#FFD9A6;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Dois polos, mais opções perto de você</span>
+      <h2 style="color:#fff;font-size:clamp(28px,3.4vw,40px);margin-top:18px">Graduação e pós-graduação em Tapauá. Pós-graduação também em Manaus.</h2>
+      <p style="color:#C7D2EA;margin-top:16px;font-size:16.5px">Em Tapauá, o CETAP oferece apoio presencial completo tanto para a graduação quanto para a pós-graduação. Em Manaus, a CeUnina mantém um polo dedicado, com catálogo ampliado de especializações.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px">
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:24px;padding:30px">
+        <span style="display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FFC107">① Tapauá, AM</span>
+        <h3 style="color:#fff;font-size:22px;margin-top:12px">Polo CETAP · Graduação e Pós-graduação</h3>
+        <p style="color:#C7D2EA;margin-top:12px;font-size:15px">Tecnólogos, bacharelados, licenciaturas e cursos de pós-graduação, com apoio presencial completo do Centro Educacional de Tapauá.</p>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14)"><strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;color:#FFC107">40</strong><span style="font-size:13.5px;color:#B9C6E3;font-weight:600">Cursos de graduação</span></div>
+      </div>
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:24px;padding:30px">
+        <span style="display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FFC107">② Manaus, AM</span>
+        <h3 style="color:#fff;font-size:22px;margin-top:12px">Polo ampliado de Pós-graduação</h3>
+        <p style="color:#C7D2EA;margin-top:12px;font-size:15px">Especializações com destaque em Educação Especial e intervenções no TEA, além de dezenas de outras áreas, igualmente disponíveis com apoio do CETAP em Tapauá.</p>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14)"><strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;color:#FFC107">80+</strong><span style="font-size:13.5px;color:#B9C6E3;font-weight:600">Cursos de pós-graduação</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="graduacao" style="padding:92px 0;scroll-margin-top:88px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="max-width:680px;margin-bottom:34px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Polo CETAP · Tapauá</span>
+      <h2 style="font-size:clamp(28px,3.4vw,40px);margin-top:18px">Escolha seu curso de graduação</h2>
+      <p style="margin-top:16px;font-size:16.5px">Cursos tecnólogos e bacharelados em EAD e licenciaturas semipresenciais, todos com apoio do CETAP na sua cidade. Mensalidades a partir de R$ 110, conforme o curso escolhido.</p>
+      <p style="margin-top:10px;font-size:16.5px">Procurando pós-graduação? O CETAP também atende em Tapauá: <a href="#pos" style="font-weight:700;text-decoration:underline">consulte o catálogo completo</a>.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+        <sc-if value="{{ t.active }}">
+          <button type="button" onClick="{{ t.pick }}" data-tab="{{ t.id }}" style="border:1.5px solid #C23E17;background:#C23E17;color:#fff;font-weight:700;font-size:14.5px;padding:11px 22px;border-radius:100px;cursor:pointer">{{ t.label }}</button>
+        </sc-if>
+        <sc-if value="{{ t.inactive }}">
+          <button type="button" onClick="{{ t.pick }}" data-tab="{{ t.id }}" style="border:1.5px solid #E7DFCF;background:#fff;color:#122A54;font-weight:700;font-size:14.5px;padding:11px 22px;border-radius:100px;cursor:pointer" style-hover="border-color:#C23E17;color:#C23E17">{{ t.label }}</button>
+        </sc-if>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:18px">
+      <sc-for list="{{ courses }}" as="c" hint-placeholder-count="9">
+        <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px" style-hover="box-shadow:0 10px 30px -12px rgba(11,29,63,0.22);border-color:#D8CDB6">
+          <h4 style="font-size:16.5px;line-height:1.25">{{ c.name }}</h4>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:6px">
+            <span style="font-size:12.5px;font-weight:600;color:#4A5268">{{ c.meta }}</span>
+            <span style="font-size:13.5px;font-weight:800;color:#0B1D3F;background:#FBF5EC;border:1px solid #E7DFCF;padding:5px 10px;border-radius:100px;white-space:nowrap">{{ c.price }}</span>
+          </div>
+          <button type="button" onClick="{{ openMatricula }}" data-curso="{{ c.name }}" style="display:inline-flex;align-items:center;justify-content:space-between;gap:8px;background:none;border:none;border-top:1px solid #F0E8DA;padding:12px 0 0;margin-top:2px;color:#C23E17;font-weight:700;font-size:13.5px;cursor:pointer;text-align:left" style-hover="color:#A5320F">
+            Quero me matricular
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;flex-shrink:0"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </button>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:20px;font-size:13.5px;font-weight:600;color:#4A5268">
+      <svg viewBox="0 0 24 24" fill="#14367A" style="width:17px;height:17px;flex-shrink:0"><path d="M11 7h2v2h-2V7Zm0 4h2v6h-2v-6Zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" /></svg>
+      <span>{{ courseNote }}</span>
+    </div>
+
+    <div style="margin-top:56px;background:linear-gradient(135deg,#122A54 0%,#14367A 100%);border-radius:28px;padding:40px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px;align-items:center">
+        <div>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#FFD9A6;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Para quem já é licenciado</span>
+          <h3 style="color:#fff;font-size:clamp(26px,3vw,34px);margin-top:18px">Segunda Licenciatura</h3>
+          <p style="color:#FFC107;font-weight:600;font-size:16.5px;margin-top:8px">Acrescente uma nova habilitação ao seu diploma em 18 meses.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px">
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#E6ECF9;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);padding:8px 14px;border-radius:100px"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" style="width:14px;height:14px"><path d="m5 13 4 4L19 7" /></svg> Artes</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#E6ECF9;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);padding:8px 14px;border-radius:100px"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" style="width:14px;height:14px"><path d="m5 13 4 4L19 7" /></svg> Educação Especial</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#E6ECF9;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);padding:8px 14px;border-radius:100px"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" style="width:14px;height:14px"><path d="m5 13 4 4L19 7" /></svg> Educação Física</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#E6ECF9;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);padding:8px 14px;border-radius:100px"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" style="width:14px;height:14px"><path d="m5 13 4 4L19 7" /></svg> História</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#E6ECF9;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);padding:8px 14px;border-radius:100px"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" style="width:14px;height:14px"><path d="m5 13 4 4L19 7" /></svg> Letras (Língua Portuguesa)</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+            <button type="button" onClick="{{ openMatricula }}" data-curso="2ª Licenciatura em Educação Especial" style="display:inline-flex;align-items:center;gap:10px;background:#C23E17;color:#fff;font-weight:700;font-size:15px;padding:14px 24px;border-radius:100px;border:none;cursor:pointer" style-hover="background:#A5320F">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:17px;height:17px"><path d="M12 5v14M5 12h14" /></svg>
+              Quero me matricular
+            </button>
+            <a href="{{ waSegunda }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,0.35);color:#fff;font-weight:700;font-size:15px;padding:14px 24px;border-radius:100px" style-hover="background:rgba(255,255,255,0.12);color:#fff">Tirar dúvidas no WhatsApp</a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:#fff;border-radius:16px;padding:18px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:#0B1D3F">18 meses</strong><span style="font-size:12.5px;font-weight:600;color:#4A5268">Duração</span></div>
+          <div style="background:#fff;border-radius:16px;padding:18px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:#0B1D3F">1.600h</strong><span style="font-size:12.5px;font-weight:600;color:#4A5268">Carga horária</span></div>
+          <div style="background:#fff;border-radius:16px;padding:18px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:#C23E17">R$ 99/mês</strong><span style="font-size:12.5px;font-weight:600;color:#4A5268">Até o vencimento</span></div>
+          <div style="background:#fff;border-radius:16px;padding:18px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:#0B1D3F">1 + 18x</strong><span style="font-size:12.5px;font-weight:600;color:#4A5268">Parcelas</span></div>
+          <div style="grid-column:1/-1;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:18px"><strong style="display:block;font-size:15px;color:#fff">Estágio obrigatório incluso</strong><span style="font-size:12.5px;font-weight:600;color:#B9C6E3">Orientado pela equipe do CETAP</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pos" style="padding:92px 0;background:#F4E9D8;scroll-margin-top:88px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="max-width:720px;margin-bottom:40px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Pós-graduação · Tapauá e Manaus</span>
+      <h2 style="font-size:clamp(28px,3.4vw,40px);margin-top:18px">Especialize-se com quem entende de Educação Especial</h2>
+      <p style="margin-top:16px;font-size:16.5px">A pós-graduação da CeUnina conta com o apoio do CETAP em Tapauá e com um polo dedicado em Manaus, de catálogo ampliado. O destaque é a linha de Educação Especial e Intervenções Especializadas, voltada ao Transtorno do Espectro Autista (TEA), e o catálogo vai muito além disso.</p>
+      <span style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-size:13.5px;font-weight:700;color:#14367A;background:#fff;border:1px solid #E7DFCF;padding:9px 16px;border-radius:100px">
+        <svg viewBox="0 0 24 24" fill="#C23E17" style="width:16px;height:16px;flex-shrink:0"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.62 6.5 11.54 7.06 12.04a.68.68 0 0 0 .88 0C13 21.04 19.5 15.12 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" /></svg>
+        Polo ampliado em Manaus: Rua Virgílio Ramos, 33, Compensa
+      </span>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E7DFCF;border-radius:28px;padding:34px;box-shadow:0 10px 30px -12px rgba(11,29,63,0.16)">
+      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between">
+        <div style="max-width:620px">
+          <h3 style="font-size:clamp(22px,2.6vw,28px)">Educação Especial e Intervenções Especializadas</h3>
+          <p style="margin-top:12px;font-size:15.5px">Especializações voltadas à avaliação, à alfabetização, às terapias e aos direitos da pessoa com TEA e outros transtornos do neurodesenvolvimento.</p>
+        </div>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:2px;background:#FBF5EC;border:1px solid #E7DFCF;border-radius:18px;padding:16px 22px">
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:700;color:#C23E17">28</span>
+          <span style="font-size:12px;font-weight:700;color:#4A5268;text-align:center">Cursos nesta linha</span>
+        </span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:26px">
+        <sc-for list="{{ teaVisible }}" as="t" hint-placeholder-count="9">
+          <span style="display:flex;align-items:flex-start;gap:9px;font-size:14px;font-weight:600;color:#1C2333;background:#FBF5EC;border:1px solid #F0E8DA;border-radius:12px;padding:12px 14px;line-height:1.4">
+            <svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:16px;height:16px;flex-shrink:0;margin-top:2px"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg>
+            {{ t }}
+          </span>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px">
+        <button type="button" onClick="{{ toggleTea }}" style="display:inline-flex;align-items:center;gap:8px;background:none;border:none;padding:0;color:#14367A;font-weight:700;font-size:14.5px;cursor:pointer;text-decoration:underline" style-hover="color:#C23E17">{{ teaLabel }}</button>
+        <button type="button" onClick="{{ openMatricula }}" data-curso="Pós-graduação em Educação Especial e Intervenções (TEA)" style="display:inline-flex;align-items:center;gap:8px;background:#C23E17;color:#fff;border:none;font-weight:700;font-size:14px;padding:11px 20px;border-radius:100px;cursor:pointer" style-hover="background:#A5320F">Quero me matricular</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:26px">
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:16px;padding:20px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:700;color:#14367A">12+</div><div style="font-weight:700;font-size:15px;color:#0B1D3F;margin-top:4px">Regular</div><div style="font-size:12.5px;color:#4A5268;font-weight:600">Meses de duração</div></div>
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:16px;padding:20px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:700;color:#14367A">6+</div><div style="font-weight:700;font-size:15px;color:#0B1D3F;margin-top:4px">Intensivo</div><div style="font-size:12.5px;color:#4A5268;font-weight:600">Meses de duração</div></div>
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:16px;padding:20px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:700;color:#14367A">4+</div><div style="font-weight:700;font-size:15px;color:#0B1D3F;margin-top:4px">Superintensivo</div><div style="font-size:12.5px;color:#4A5268;font-weight:600">Meses de duração</div></div>
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:16px;padding:20px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:700;color:#14367A">3</div><div style="font-weight:700;font-size:15px;color:#0B1D3F;margin-top:4px">Ultraintensivo</div><div style="font-size:12.5px;color:#4A5268;font-weight:600">Meses de duração</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:26px">
+      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="6">
+        <div style="background:#fff;border:1px solid #E7DFCF;border-radius:16px;overflow:hidden">
+          <button type="button" onClick="{{ a.toggle }}" data-i="{{ a.i }}" style="display:flex;align-items:center;gap:14px;width:100%;background:none;border:none;padding:18px 20px;cursor:pointer;text-align:left">
+            <span style="flex:1;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;color:#0B1D3F">{{ a.name }}</span>
+            <span style="font-size:12.5px;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);padding:5px 10px;border-radius:100px;white-space:nowrap">{{ a.count }}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#14367A" stroke-width="2" style="width:18px;height:18px;flex-shrink:0"><path d="M12 5v14M5 12h14" /></svg>
+          </button>
+          <sc-if value="{{ a.open }}">
+            <div style="display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 22px;border-top:1px solid #F0E8DA;padding-top:18px">
+              <sc-for list="{{ a.items }}" as="it" hint-placeholder-count="6">
+                <span style="font-size:13.5px;font-weight:600;color:#1C2333;background:#FBF5EC;border:1px solid #F0E8DA;border-radius:100px;padding:7px 13px">{{ it }}</span>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #E7DFCF;border-left:4px solid #FFC107;border-radius:16px;padding:20px;margin-top:26px">
+      <svg viewBox="0 0 24 24" fill="#8A6008" style="width:20px;height:20px;flex-shrink:0"><path d="M11 7h2v2h-2V7Zm0 4h2v6h-2v-6Zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" /></svg>
+      <p style="font-size:14.5px"><strong style="color:#0B1D3F">Valores e turmas sob consulta.</strong> A duração muda conforme a modalidade escolhida. Fale com a equipe pelo WhatsApp para confirmar mensalidade e datas de início de cada curso de pós-graduação.</p>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:28px">
+      <button type="button" onClick="{{ openMatricula }}" data-curso="Pós-graduação em Educação Especial e Intervenções (TEA)" style="display:inline-flex;align-items:center;gap:10px;background:#C23E17;color:#fff;font-weight:700;font-size:15.5px;padding:15px 26px;border-radius:100px;border:none;cursor:pointer;box-shadow:0 10px 24px -8px rgba(194,62,23,0.45);text-align:center" style-hover="background:#A5320F">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px;flex-shrink:0"><path d="M12 5v14M5 12h14" /></svg>
+        Quero me matricular em uma pós-graduação
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona" style="padding:92px 0;scroll-margin-top:88px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="max-width:620px;margin:0 auto 44px;text-align:center">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Do primeiro contato à sala de aula</span>
+      <h2 style="font-size:clamp(28px,3.4vw,40px);margin-top:18px">Como funciona a matrícula</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:26px">
+        <div style="width:38px;height:38px;border-radius:50%;background:#0B1D3F;color:#FFC107;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px">1</div>
+        <h4 style="font-size:17px;margin-top:16px">Escolha seu curso</h4>
+        <p style="margin-top:8px;font-size:14.5px">Consulte o catálogo de graduação em Tapauá ou de pós-graduação (Tapauá e Manaus) e clique em “Quero me matricular”.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:26px">
+        <div style="width:38px;height:38px;border-radius:50%;background:#0B1D3F;color:#FFC107;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px">2</div>
+        <h4 style="font-size:17px;margin-top:16px">Preencha seus dados</h4>
+        <p style="margin-top:8px;font-size:14.5px">Um formulário breve reúne suas informações e monta a sua solicitação de matrícula.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:26px">
+        <div style="width:38px;height:38px;border-radius:50%;background:#0B1D3F;color:#FFC107;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px">3</div>
+        <h4 style="font-size:17px;margin-top:16px">Envie pelo WhatsApp</h4>
+        <p style="margin-top:8px;font-size:14.5px">A solicitação é encaminhada à equipe do CETAP, que confirma a matrícula e orienta sobre a documentação.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E7DFCF;border-radius:18px;padding:26px">
+        <div style="width:38px;height:38px;border-radius:50%;background:#0B1D3F;color:#FFC107;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px">4</div>
+        <h4 style="font-size:17px;margin-top:16px">Comece a estudar</h4>
+        <p style="margin-top:8px;font-size:14.5px">Início imediato nas turmas em formação, com apoio local durante todo o curso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="documentos" style="padding:0 0 92px;scroll-margin-top:88px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="background:#F4E9D8;border-radius:28px;padding:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Separe com antecedência</span>
+        <h2 style="font-size:clamp(26px,3vw,34px);margin-top:18px">Documentos necessários</h2>
+        <p style="margin-top:14px;font-size:16px">Apresente os documentos abaixo no ato da matrícula, no polo CETAP em Tapauá.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:#1C2333;background:#fff;border-radius:12px;padding:13px 16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:17px;height:17px;flex-shrink:0"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Cópia do RG</span>
+        <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:#1C2333;background:#fff;border-radius:12px;padding:13px 16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:17px;height:17px;flex-shrink:0"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Cópia do CPF</span>
+        <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:#1C2333;background:#fff;border-radius:12px;padding:13px 16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:17px;height:17px;flex-shrink:0"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Cópia do comprovante de residência</span>
+        <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:#1C2333;background:#fff;border-radius:12px;padding:13px 16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:17px;height:17px;flex-shrink:0"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Cópia autenticada do Certificado de Conclusão do Ensino Médio</span>
+        <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:#1C2333;background:#fff;border-radius:12px;padding:13px 16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:17px;height:17px;flex-shrink:0"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Cópia autenticada do Histórico Escolar do Ensino Médio</span>
+        <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;font-weight:600;color:#1C2333;background:#fff;border-radius:12px;padding:13px 16px"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:17px;height:17px;flex-shrink:0"><path d="M9 16.17 4.83 12l-1.41 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" /></svg> Cópia da Certidão de Nascimento ou de Casamento</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding:92px 0;background:#F4E9D8;scroll-margin-top:88px">
+  <div style="max-width:820px;margin:0 auto;padding:0 24px">
+    <div style="text-align:center;margin-bottom:40px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Dúvidas comuns</span>
+      <h2 style="font-size:clamp(28px,3.4vw,40px);margin-top:18px">Perguntas frequentes</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid #E7DFCF;border-radius:16px;overflow:hidden">
+          <button type="button" onClick="{{ f.toggle }}" data-i="{{ f.i }}" style="display:flex;align-items:center;gap:16px;width:100%;background:none;border:none;padding:20px 22px;cursor:pointer;text-align:left">
+            <span style="flex:1;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;color:#0B1D3F">{{ f.q }}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C23E17" stroke-width="2" style="width:18px;height:18px;flex-shrink:0"><path d="M12 5v14M5 12h14" /></svg>
+          </button>
+          <sc-if value="{{ f.open }}">
+            <div style="padding:0 22px 22px"><p style="font-size:15px">{{ f.a }}</p></div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="boas-vindas" style="padding:92px 0 0">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="background:linear-gradient(135deg,#0B1D3F 0%,#14367A 100%);border-radius:28px;padding:52px 44px;text-align:center">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#FFD9A6;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Seja bem-vindo(a)!</span>
+      <h2 style="color:#fff;font-size:clamp(26px,3.2vw,36px);margin-top:18px;max-width:760px;margin-left:auto;margin-right:auto">Será uma satisfação tê-lo(a) conosco nessa nova etapa da sua formação.</h2>
+      <p style="color:#C7D2EA;font-size:16.5px;margin-top:14px;max-width:600px;margin-left:auto;margin-right:auto">Preencha sua solicitação agora. São poucos minutos, e a equipe do CETAP acompanha você em cada etapa.</p>
+      <div style="display:flex;justify-content:center;margin-top:28px">
+        <button type="button" onClick="{{ openMatricula }}" style="display:inline-flex;align-items:center;gap:10px;background:#C23E17;color:#fff;font-weight:700;font-size:15.5px;padding:15px 28px;border-radius:100px;border:none;cursor:pointer;box-shadow:0 10px 24px -8px rgba(194,62,23,0.5)" style-hover="background:#A5320F">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M12 5v14M5 12h14" /></svg>
+          Quero iniciar minha matrícula
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="padding:92px 0;scroll-margin-top:88px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;align-items:start">
+    <div>
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#C23E17;background:rgba(239,90,43,0.09);border:1px solid rgba(239,90,43,0.25);padding:7px 14px;border-radius:100px"><span style="width:6px;height:6px;border-radius:50%;background:#EF5A2B;display:block"></span> Fale com a gente</span>
+      <h2 style="font-size:clamp(28px,3.2vw,38px);margin-top:18px">Seu diploma começa com uma mensagem</h2>
+      <p style="margin-top:14px;font-size:16.5px">A equipe do CETAP responde pelo WhatsApp e ajuda você a escolher o curso mais adequado, em Tapauá ou no polo de Manaus.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:28px">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="width:40px;height:40px;border-radius:12px;background:rgba(20,54,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="#14367A" style="width:19px;height:19px"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.62 6.5 11.54 7.06 12.04a.68.68 0 0 0 .88 0C13 21.04 19.5 15.12 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" /></svg></span>
+          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;color:#0B1D3F">Polo CETAP, Tapauá (AM)</strong><span style="font-size:14px;color:#4A5268">Rua Maringá, Tapauá, Amazonas · Graduação e Pós-graduação</span></span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="width:40px;height:40px;border-radius:12px;background:rgba(20,54,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="#14367A" style="width:19px;height:19px"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.62 6.5 11.54 7.06 12.04a.68.68 0 0 0 .88 0C13 21.04 19.5 15.12 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" /></svg></span>
+          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;color:#0B1D3F">Polo ampliado de Pós-graduação, Manaus (AM)</strong><span style="font-size:14px;color:#4A5268">Rua Virgílio Ramos, 33, Compensa, Manaus</span></span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="width:40px;height:40px;border-radius:12px;background:rgba(27,138,77,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="#1B8A4D" style="width:19px;height:19px"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.35-.35.52-.52.17-.18.23-.3.35-.5.11-.2.06-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41z" /></svg></span>
+          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;color:#0B1D3F">WhatsApp do polo</strong><a href="{{ waGeral }}" target="_blank" rel="noopener" style="font-size:14px;font-weight:700">{{ waDisplay }}</a></span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="width:40px;height:40px;border-radius:12px;background:rgba(20,54,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="#14367A" style="width:19px;height:19px"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z" /></svg></span>
+          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;color:#0B1D3F">Atendimento nacional CeUnina</strong><span style="font-size:14px;color:#4A5268">Curitiba e região: 4003-3741 · Demais localidades: 0800 323 9000</span></span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="width:40px;height:40px;border-radius:12px;background:rgba(20,54,122,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="#14367A" style="width:19px;height:19px"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6h-2.95a15.7 15.7 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.5 2.53 1.91 3.96h-3.82c.41-1.43 1.08-2.76 1.91-3.96ZM4.26 14a7.97 7.97 0 0 1 0-4h3.38a16.6 16.6 0 0 0 0 4H4.26Zm.81 2h2.95a15.7 15.7 0 0 0 1.38 3.56A8.03 8.03 0 0 1 5.07 16Zm2.95-8H5.07a8.03 8.03 0 0 1 4.33-3.56A15.7 15.7 0 0 0 8.02 8ZM12 19.96a15.6 15.6 0 0 1-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96ZM14.34 14H9.66a14.6 14.6 0 0 1 0-4h4.68a14.6 14.6 0 0 1 0 4Zm.3 5.56A15.7 15.7 0 0 0 16.02 16h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14a16.6 16.6 0 0 0 0-4h3.38a7.97 7.97 0 0 1 0 4h-3.38Z" /></svg></span>
+          <span style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:15px;color:#0B1D3F">Site e redes</strong><a href="https://ceunina.edu.br" target="_blank" rel="noopener" style="font-size:14px;font-weight:700">ceunina.edu.br</a><a href="https://instagram.com/ceuninaoficial" target="_blank" rel="noopener" style="font-size:14px;font-weight:700">@ceuninaoficial</a></span>
+        </div>
+      </div>
+    </div>
+    <div style="background:#0B1D3F;border-radius:28px;padding:36px;position:sticky;top:104px">
+      <img src="assets/img0.png" alt="CETAP" style="height:36px;width:auto;filter:brightness(0) invert(1)" />
+      <h3 style="color:#fff;font-size:23px;margin-top:22px">Fale agora com o polo</h3>
+      <p style="color:#C7D2EA;font-size:15px;margin-top:12px">Atendimento rápido pelo WhatsApp para dúvidas sobre cursos, valores e matrícula, direto com a equipe do CETAP em Tapauá.</p>
+      <a href="{{ waMatricula }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#C23E17;color:#fff;font-weight:700;font-size:15.5px;padding:15px 22px;border-radius:100px;margin-top:24px" style-hover="background:#A5320F;color:#fff">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.35-.35.52-.52.17-.18.23-.3.35-.5.11-.2.06-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41z" /></svg>
+        Garantir minha vaga
+      </a>
+      <button type="button" onClick="{{ openMatricula }}" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:none;border:1.5px solid rgba(255,255,255,0.3);color:#fff;font-weight:700;font-size:15px;padding:14px 22px;border-radius:100px;margin-top:12px;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)">Preencher formulário de matrícula</button>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#0B1D3F;padding:60px 0 28px">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px">
+      <div style="max-width:340px">
+        <img src="assets/img1.png" alt="CeUnina" style="height:28px;width:auto;filter:brightness(0) invert(1)" />
+        <p style="color:#8FA1C4;font-size:13.5px;margin-top:16px">Centro Universitário Nelson Akiyoshi, credenciada pela Portaria MEC nº 905/2025. Cursos de graduação, pós-graduação e extensão, com apoio local do polo CETAP em Tapauá, AM.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h5 style="color:#fff;font-size:13px;letter-spacing:0.1em;text-transform:uppercase">Navegação</h5>
+        <a href="#sobre" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Sobre</a>
+        <a href="#graduacao" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Graduação</a>
+        <a href="#pos" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Pós-graduação</a>
+        <a href="#documentos" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Documentos</a>
+        <a href="#faq" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Dúvidas</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h5 style="color:#fff;font-size:13px;letter-spacing:0.1em;text-transform:uppercase">Nossos polos</h5>
+        <a href="#contato" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Tapauá · Rua Maringá</a>
+        <a href="#contato" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">Manaus · R. Virgílio Ramos, 33, Compensa</a>
+        <a href="{{ waGeral }}" target="_blank" rel="noopener" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">{{ waDisplay }}</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h5 style="color:#fff;font-size:13px;letter-spacing:0.1em;text-transform:uppercase">CeUnina</h5>
+        <a href="https://ceunina.edu.br" target="_blank" rel="noopener" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">ceunina.edu.br</a>
+        <a href="https://instagram.com/ceuninaoficial" target="_blank" rel="noopener" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">@ceuninaoficial</a>
+        <a href="tel:08003239000" style="color:#B9C6E3;font-size:14px" style-hover="color:#FFC107">0800 323 9000</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.12)">
+      <span style="color:#7A8BB0;font-size:12.5px">© 2026 CeUnina · Polo CETAP, Tapauá, AM. Todos os direitos reservados.</span>
+      <span style="color:#7A8BB0;font-size:12.5px">Criada e credenciada pela Portaria MEC nº 905, de 23/12/2025.</span>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showFloat }}" hint-placeholder-val="{{ true }}">
+  <a href="{{ waSite }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:110;width:58px;height:58px;border-radius:50%;background:#1B8A4D;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -10px rgba(27,138,77,0.7)" style-hover="background:#15703E;color:#fff">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width:29px;height:29px"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.35-.35.52-.52.17-.18.23-.3.35-.5.11-.2.06-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41z" /></svg>
+  </a>
+</sc-if>
+
+<sc-if value="{{ modalOpen }}">
+  <div onClick="{{ backdropClose }}" style="position:fixed;inset:0;z-index:200;background:rgba(11,29,63,0.6);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding:0">
+    <div style="background:#fff;width:100%;max-width:640px;max-height:94vh;border-radius:24px 24px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:fadeUp 0.28s ease both;box-shadow:0 -20px 60px -20px rgba(11,29,63,0.5)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px 16px;border-bottom:1px solid #F0E8DA">
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:19px;color:#0B1D3F">Solicitação de matrícula</strong>
+          <span style="font-size:13px;font-weight:600;color:#4A5268">{{ stepLabel }}</span>
+        </div>
+        <button type="button" aria-label="Fechar formulário" onClick="{{ closeMatricula }}" style="background:#FBF5EC;border:1px solid #E7DFCF;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#4A5268;flex-shrink:0" style-hover="background:#F4E9D8">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:17px;height:17px"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <div style="height:4px;background:#F0E8DA"><div style="height:4px;background:#C23E17;transition:width .3s ease;width:{{ progress }}%"></div></div>
+      <div style="padding:24px;overflow-y:auto;flex:1">
+        <sc-if value="{{ isForm }}">
+          <div>
+            <span style="display:inline-block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:#C23E17">{{ stepEyebrow }}</span>
+            <h3 style="font-size:22px;margin-top:8px;margin-bottom:22px">{{ stepTitle }}</h3>
+            <sc-for list="{{ stepFields }}" as="f" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px">
+                <label for="{{ f.id }}" style="font-size:13.5px;font-weight:700;color:#0B1D3F">{{ f.label }}</label>
+                <sc-if value="{{ f.isInput }}">
+                  <input id="{{ f.id }}" type="{{ f.inputType }}" value="{{ f.value }}" onChange="{{ f.onChange }}" placeholder="{{ f.placeholder }}" inputMode="{{ f.inputMode }}" style="border:1.5px solid #E7DFCF;border-radius:12px;padding:13px 14px;font-size:15px;color:#1C2333;background:#FBF5EC;width:100%" />
+                </sc-if>
+                <sc-if value="{{ f.isTextarea }}">
+                  <textarea id="{{ f.id }}" value="{{ f.value }}" onChange="{{ f.onChange }}" placeholder="{{ f.placeholder }}" rows="3" style="border:1.5px solid #E7DFCF;border-radius:12px;padding:13px 14px;font-size:15px;color:#1C2333;background:#FBF5EC;width:100%;resize:vertical"></textarea>
+                </sc-if>
+                <sc-if value="{{ f.isSelect }}">
+                  <select id="{{ f.id }}" value="{{ f.value }}" onChange="{{ f.onChange }}" style="border:1.5px solid #E7DFCF;border-radius:12px;padding:13px 14px;font-size:15px;color:#1C2333;background:#FBF5EC;width:100%">
+                    <option value="">Selecione</option>
+                    <sc-for list="{{ f.options }}" as="o" hint-placeholder-count="3">
+                      <option value="{{ o }}">{{ o }}</option>
+                    </sc-for>
+                  </select>
+                </sc-if>
+                <sc-if value="{{ f.isGroupSelect }}">
+                  <select id="{{ f.id }}" value="{{ f.value }}" onChange="{{ f.onChange }}" style="border:1.5px solid #E7DFCF;border-radius:12px;padding:13px 14px;font-size:15px;color:#1C2333;background:#FBF5EC;width:100%">
+                    <option value="">Selecione um curso</option>
+                    <sc-for list="{{ f.groups }}" as="g" hint-placeholder-count="4">
+                      <optgroup label="{{ g.label }}">
+                        <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="4">
+                          <option value="{{ it }}">{{ it }}</option>
+                        </sc-for>
+                      </optgroup>
+                    </sc-for>
+                  </select>
+                </sc-if>
+                <sc-if value="{{ f.isRadio }}">
+                  <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <sc-for list="{{ f.pills }}" as="p" hint-placeholder-count="2">
+                      <sc-if value="{{ p.on }}">
+                        <button type="button" onClick="{{ f.pick }}" data-v="{{ p.v }}" style="border:1.5px solid #C23E17;background:#C23E17;color:#fff;font-weight:700;font-size:14.5px;padding:11px 22px;border-radius:100px;cursor:pointer">{{ p.v }}</button>
+                      </sc-if>
+                      <sc-if value="{{ p.off }}">
+                        <button type="button" onClick="{{ f.pick }}" data-v="{{ p.v }}" style="border:1.5px solid #E7DFCF;background:#FBF5EC;color:#122A54;font-weight:700;font-size:14.5px;padding:11px 22px;border-radius:100px;cursor:pointer" style-hover="border-color:#C23E17">{{ p.v }}</button>
+                      </sc-if>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ f.hint }}">
+                  <span style="font-size:12.5px;color:#4A5268">{{ f.hint }}</span>
+                </sc-if>
+                <sc-if value="{{ f.error }}">
+                  <span style="font-size:12.5px;font-weight:700;color:#C23E17">{{ f.error }}</span>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isReview }}">
+          <div>
+            <span style="display:inline-block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:#C23E17">Revisão</span>
+            <h3 style="font-size:22px;margin-top:8px;margin-bottom:20px">Confira seus dados antes de enviar</h3>
+            <sc-for list="{{ reviewGroups }}" as="g" hint-placeholder-count="4">
+              <div style="border:1px solid #F0E8DA;border-radius:16px;padding:16px 18px;margin-bottom:12px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px">
+                  <h4 style="font-size:15.5px">{{ g.title }}</h4>
+                  <button type="button" onClick="{{ g.edit }}" data-step="{{ g.step }}" style="background:none;border:none;color:#C23E17;font-weight:700;font-size:13px;cursor:pointer;text-decoration:underline">Editar</button>
+                </div>
+                <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="3">
+                  <div style="display:flex;gap:14px;justify-content:space-between;padding:7px 0;border-top:1px solid #F7F1E6">
+                    <span style="font-size:13px;color:#4A5268;font-weight:600;flex-shrink:0">{{ r.k }}</span>
+                    <span style="font-size:13.5px;color:#1C2333;font-weight:700;text-align:right">{{ r.v }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+            <div style="background:#FBF5EC;border:1px solid #E7DFCF;border-radius:16px;padding:18px;margin-top:6px">
+              <p style="font-size:13.5px"><strong style="color:#0B1D3F">Privacidade dos seus dados.</strong> as informações preenchidas serão utilizadas exclusivamente para o processo de matrícula e encaminhadas ao responsável pelo atendimento via WhatsApp. Este formulário não armazena cópia dos seus dados.</p>
+              <sc-if value="{{ consentOn }}">
+                <button type="button" onClick="{{ toggleConsent }}" style="display:flex;align-items:center;gap:11px;background:none;border:none;padding:14px 0 0;cursor:pointer;text-align:left;width:100%">
+                  <span style="width:22px;height:22px;border-radius:6px;background:#1B8A4D;border:1.5px solid #1B8A4D;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" style="width:14px;height:14px"><path d="m5 13 4 4L19 7" /></svg></span>
+                  <span style="font-size:13.5px;font-weight:600;color:#1C2333">Li e concordo com o envio dos meus dados para realização da matrícula.</span>
+                </button>
+              </sc-if>
+              <sc-if value="{{ consentOff }}">
+                <button type="button" onClick="{{ toggleConsent }}" style="display:flex;align-items:center;gap:11px;background:none;border:none;padding:14px 0 0;cursor:pointer;text-align:left;width:100%">
+                  <span style="width:22px;height:22px;border-radius:6px;background:#fff;border:1.5px solid #C9BFA9;display:block;flex-shrink:0"></span>
+                  <span style="font-size:13.5px;font-weight:600;color:#1C2333">Li e concordo com o envio dos meus dados para realização da matrícula.</span>
+                </button>
+              </sc-if>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isSuccess }}">
+          <div style="text-align:center;padding:30px 10px 20px">
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(27,138,77,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto"><svg viewBox="0 0 24 24" fill="none" stroke="#1B8A4D" stroke-width="2.4" style="width:32px;height:32px"><path d="m5 13 5 5L20 7" /></svg></div>
+            <h3 style="font-size:24px;margin-top:20px">Solicitação pronta para envio</h3>
+            <p style="margin-top:12px;font-size:15.5px">O WhatsApp foi aberto com o resumo da sua matrícula já preenchido. Basta confirmar o envio para que a equipe do CETAP dê continuidade ao processo.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+              <a href="{{ lastWaUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:9px;background:#1B8A4D;color:#fff;font-weight:700;font-size:15px;padding:14px 22px;border-radius:100px" style-hover="background:#15703E;color:#fff">O WhatsApp não abriu? Clique aqui</a>
+              <button type="button" onClick="{{ closeMatricula }}" style="background:none;border:1.5px solid #E7DFCF;color:#122A54;font-weight:700;font-size:15px;padding:13px 22px;border-radius:100px;cursor:pointer">Fechar</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <sc-if value="{{ showFoot }}">
+        <div style="display:flex;gap:12px;justify-content:space-between;padding:16px 24px;border-top:1px solid #F0E8DA;background:#fff">
+          <sc-if value="{{ canGoBack }}">
+            <button type="button" onClick="{{ back }}" style="border:1.5px solid rgba(20,54,122,0.25);background:none;color:#14367A;font-weight:700;font-size:15px;padding:13px 24px;border-radius:100px;cursor:pointer" style-hover="background:rgba(20,54,122,0.06)">Voltar</button>
+          </sc-if>
+          <sc-if value="{{ nextEnabled }}">
+            <button type="button" onClick="{{ next }}" style="flex:1;max-width:340px;margin-left:auto;background:#C23E17;color:#fff;border:none;font-weight:700;font-size:15px;padding:14px 24px;border-radius:100px;cursor:pointer;box-shadow:0 10px 22px -10px rgba(194,62,23,0.5)" style-hover="background:#A5320F">{{ nextLabel }}</button>
+          </sc-if>
+          <sc-if value="{{ nextDisabled }}">
+            <button type="button" disabled="{{ true }}" style="flex:1;max-width:340px;margin-left:auto;background:#E7DFCF;color:#9A917F;border:none;font-weight:700;font-size:15px;padding:14px 24px;border-radius:100px;cursor:not-allowed">{{ nextLabel }}</button>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumero&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5597991571697&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;whatsappExibicao&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;(97) 99157-1697&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;botaoFlutuante&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contato&quot;}}">
+const TEC = [
+  ["Análise e Desenvolvimento de Sistemas","2,5 anos · EAD","R$ 110/mês"],
+  ["Agente Comunitário de Saúde e Endemia","2 anos · EAD","R$ 150/mês"],
+  ["Gestão Ambiental","2 anos · EAD","R$ 150/mês"],
+  ["Gestão Comercial","2 anos · EAD","R$ 110/mês"],
+  ["Gestão de Cooperativas","2 anos · EAD","R$ 110/mês"],
+  ["Gestão de TI","2,5 anos · EAD","R$ 110/mês"],
+  ["Gestão do Agronegócio","3 anos · EAD","R$ 110/mês"],
+  ["Gestão Financeira","2 anos · EAD","R$ 110/mês"],
+  ["Gestão Hospitalar","2 anos · EAD","R$ 150/mês"],
+  ["Gestão Pública","2 anos · EAD","R$ 110/mês"],
+  ["Logística","2 anos · EAD","R$ 110/mês"],
+  ["Marketing","2 anos · EAD","R$ 110/mês"],
+  ["Processos Escolares","2 anos · EAD","R$ 150/mês"],
+  ["Processos Gerenciais","2 anos · EAD","R$ 110/mês"],
+  ["Recursos Humanos","2 anos · EAD","R$ 110/mês"],
+  ["Segurança do Trabalho","3 anos · EAD","R$ 150/mês"],
+  ["Segurança Pública","2 anos · EAD","R$ 150/mês"],
+  ["Influenciador Digital","2 anos · EAD","R$ 150/mês"],
+  ["Gestão da Qualidade","2 anos · EAD","R$ 150/mês"]
+];
+const BACH = [
+  ["Administração","4 anos · EAD","R$ 110/mês"],
+  ["Ciências Contábeis","4 anos · Semipresencial","R$ 150/mês"],
+  ["Educação Física (Bacharelado)","4 anos · Semipresencial","R$ 189/mês"],
+  ["Engenharia Agronômica","5 anos · Semipresencial","R$ 249/mês"],
+  ["Engenharia Civil","5 anos · Semipresencial","R$ 249/mês"],
+  ["Engenharia de Software","5 anos · Semipresencial","R$ 249/mês"],
+  ["Engenharia de Segurança do Trabalho","5 anos · Semipresencial","R$ 249/mês"],
+  ["Farmácia","5 anos · Semipresencial","R$ 189/mês"],
+  ["Nutrição","4 anos · Semipresencial","R$ 189/mês"],
+  ["Serviço Social","4 anos · Semipresencial","R$ 110/mês"],
+  ["Terapia Ocupacional","4 anos · Semipresencial","R$ 189/mês"],
+  ["Zootecnia","5 anos · Semipresencial","R$ 175/mês"],
+  ["Fisioterapia","5 anos · Semipresencial","R$ 240/mês"]
+];
+const LIC = [
+  ["Pedagogia","4 anos · Semipresencial","R$ 110/mês"],
+  ["Artes Visuais","4 anos · Semipresencial","R$ 110/mês"],
+  ["Educação Especial","4 anos · Semipresencial","R$ 110/mês"],
+  ["Educação Física (Licenciatura)","4 anos · Semipresencial","R$ 110/mês"],
+  ["História","4 anos · Semipresencial","R$ 110/mês"],
+  ["Letras (Língua Portuguesa)","4 anos · Semipresencial","R$ 110/mês"],
+  ["Letras (Libras)","4 anos · Semipresencial","R$ 110/mês"],
+  ["Matemática","4 anos · Semipresencial","R$ 175/mês"]
+];
+const TEA = [
+  "Análise do Comportamento Aplicada ao Autismo (ABA)","Transtorno do Espectro Autista (TEA)",
+  "Educação Especial Inclusiva, com Ênfase em TEA (620h)","Tecnologia Assistiva e Comunicação Alternativa",
+  "Libras","Terapia Cognitivo Comportamental para TEA e TDAH","Educação Física Adaptada",
+  "Transtornos Globais do Desenvolvimento (TGD) (620h)",
+  "Avaliação, Diagnóstico e Intervenção em Transtornos do Neurodesenvolvimento",
+  "Alfabetização e Letramento no TEA","Alfabetização Matemática no TEA","Dança Aplicada à Educação Especial",
+  "Direitos da Pessoa com TEA","Educação Especial com Ênfase na Deficiência Múltipla",
+  "Educação Especial Inclusiva, com Ênfase em Deficiência Intelectual",
+  "Ensino de Habilidades Sociais e de Aprendizagem para TEA","Manejo de Crises e Cuidados no TEA",
+  "Matemática Inclusiva","Método Fônico de Alfabetização para TEA e DI","Neuroarquitetura Aplicada ao Autismo",
+  "Nutrição e Seletividade Alimentar na Pessoa com TEA","Práticas Baseadas em Evidências no TEA",
+  "Psicologia do Desenvolvimento e da Aprendizagem","Saúde Integral no Autismo",
+  "Terapia Cognitivo Comportamental","Terapia Cognitivo Comportamental para Crianças e Adolescentes",
+  "TOD no Contexto Escolar, Clínico e Social","Transtornos de Aprendizagem: Avaliação e Intervenção"
+];
+const AREAS = [
+  ["Educação e Docência",["Alfabetização e Letramento","Alfabetização e Linguagem","Alfabetização Matemática","Avaliação no Contexto Escolar","Docência do Ensino Superior","Docência no Ensino Médio: Ciências da Natureza","Docência no Ensino Médio: Ciências Humanas","Docência no Ensino Médio: Linguagens","Docência no Ensino Médio: Matemática","Educação de Jovens e Adultos","Educação Física e Atletismo","Educação Física Escolar","Educação Infantil","Educação Infantil: Abordagem Reggio Emília","Educação Infantil: Práticas em Sala de Aula","Educação Infantil e Anos Iniciais","Ensino Lúdico","História e Geografia","Leitura, Letramento e Literatura","Leitura, Literatura Infantil e Contação de História","Literatura Brasileira","Literatura e Intermídias","Literatura Infantil","Literatura Inglesa","Os Bebês na Educação Infantil","Primeira Infância e Diferentes Abordagens (520h)"]],
+  ["Psicopedagogia e Neurociência",["Fonoaudiologia Educacional","Neuroaprendizagem","Neurociência no Contexto Escolar","Neuropsicologia Educacional (800h)","Neuropsicomotricidade (800h)","Neuropsicopedagogia (520h)","Neuropsicopedagogia Institucional e Clínica (680h)","Psicomotricidade","Psicomotricidade (520h)","Psicopedagogia Clínica com Ênfase em ABA (800h)","Psicopedagogia Clínica, Empresarial, Hospitalar e Educacional (800h)","Psicopedagogia Institucional e Clínica (800h)"]],
+  ["Tecnologias e Metodologias Educacionais",["Curadoria de Conteúdos Digitais Educacionais","Educação a Distância: Formação de Tutores","Ensino Híbrido e Metodologias Ativas","Inteligência Artificial e Tecnologias Educacionais","Metodologia Docente Aplicada ao Contexto Digital","Tecnologias da Informação e Comunicação na Educação","TIC na Educação do Campo"]],
+  ["Gestão e Administração Educacional",["Administração Escolar","Atendimento Educacional Especializado (800h)","Biblioteconomia","Coaching Educacional","Coordenação Pedagógica","Financiamento da Educação","Gestão Escolar (520h)","Gestão Escolar, Orientação e Supervisão (1080h)","Legislação Educacional","Orientação Educacional","Orientação Escolar","Orientação e Supervisão Escolar","Secretariado Escolar","Supervisão Escolar"]],
+  ["Área Empresarial",["Administração e Finanças","Atendimento em Vendas","Coaching e Mediação de Conflitos","Comércio Exterior","Controladoria e Finanças","Gestão Comercial e Vendas","Gestão de Recursos Humanos","Gestão em Agronegócio","Inteligência Artificial e Machine Learning","Logística e Modais de Transporte","MBA em Gestão de Finanças","MBA em Gestão de Segurança do Trabalho","MBA em Gestão de TI","MBA em Marketing Digital e Social Media","Processos Gerenciais"]],
+  ["Governança e Segurança Pública",["Análise Criminal","Análise de Ameaças, Riscos e Vulnerabilidades","Ciências Forense (680h)","Compliance Governamental e Corporativo","Controladoria Pública e Responsabilidade Fiscal","Gestão do Sistema Prisional","Gestão em Saúde Pública","Gestão em Segurança Pública e Execução Penal","Gestão Estratégica em ESG","Gestão de Políticas Sociais","Gestão Pública","História Militar","Inteligência Policial e Penitenciária","Inteligência Policial e Penitenciária e Execução Penal","Investigação Forense","Perícia Criminal","Perícia Grafotécnica","Perícia Grafotécnica para Pedagogo","Políticas Públicas","Proteção e Defesa Civil","Segurança Pública","Serviço Social e Gestão do SUAS","Sistema de Comando de Incidentes (ICS)","Sustentabilidade e Cidades Inteligentes","Supervisor de Trânsito"]],
+  ["Área Jurídica e Militar",["Armas, Munições e Balística","Direito Civil e Processo Civil","Direito Digital","Direito do Trabalho e Previdenciário","Direito Educacional","Direito Familiar e Sucessões","Direito Imobiliário","Direito Militar","Direito Penal e Processo Penal","Direito Tributário","Justiça Restaurativa"]],
+  ["Área Médica e Saúde",["MBA em Gestão da Qualidade na Saúde","Nutrição Esportiva Aplicada","Saúde da Família","Suporte Básico de Vida e Socorro de Emergência"]],
+  ["Educação Complementar",["Arte, Educação e Terapia","Brigadas Escolares","Educação Ambiental","Educação Ambiental: Espaços Educadores","Educação Financeira e Desenvolvimento Pessoal","Educação Financeira: Práticas em Sala de Aula","Gênero e Diversidade Escolar","Pedagogia Sistêmica","Psicologia Social","Revisão de Textos","Taxonomia de Bloom"]],
+  ["Terapias Complementares",["Aconselhamento e Psicologia Pastoral","Constelação Familiar"]]
+];
+const FAQS = [
+  ["Os cursos são reconhecidos pelo MEC?","Sim. A CeUnina, Centro Universitário Nelson Akiyoshi, foi criada e credenciada pela Portaria MEC nº 905, de 23 de dezembro de 2025, e é especializada em Ensino a Distância."],
+  ["Preciso viajar até Curitiba para estudar?","Não. A CeUnina é a instituição responsável pelo curso e pelo diploma, mas o CETAP dá todo o suporte presencial em Tapauá: matrícula, documentação, dúvidas e orientação de estágio, sem sair da cidade."],
+  ["Qual a diferença entre EAD e semipresencial?","Nos cursos EAD, as atividades ocorrem no ambiente virtual de aprendizagem. Nos semipresenciais, parte das atividades, como estágios e avaliações, conta com apoio presencial do polo CETAP."],
+  ["Como funciona a Segunda Licenciatura?","Destina-se a quem já possui uma licenciatura e deseja acrescentar uma nova habilitação (Artes, Educação Especial, Educação Física, História ou Letras). Tem duração de 18 meses, 1.600h de carga horária, estágio obrigatório e TCC em formato de projeto de aplicação."],
+  ["A pós-graduação também tem apoio presencial?","Sim. Em Tapauá, o CETAP atende a pós-graduação com apoio local; em Manaus há um polo dedicado, com catálogo ampliado. Consulte a equipe pelo WhatsApp para confirmar a modalidade e o formato de acompanhamento de cada curso."]
+];
+const CURSO_GROUPS = [
+  { label: "Graduação, Tecnólogo (Tapauá, EAD)", items: TEC.map(c => c[0]) },
+  { label: "Graduação, Bacharelado (Tapauá)", items: BACH.map(c => c[0]) },
+  { label: "Graduação, Licenciatura (Tapauá)", items: LIC.map(c => c[0]) },
+  { label: "2ª Licenciatura (para já licenciados)", items: ["2ª Licenciatura em Artes","2ª Licenciatura em Educação Especial","2ª Licenciatura em Educação Física","2ª Licenciatura em História","2ª Licenciatura em Letras (Língua Portuguesa)"] },
+  { label: "Pós-graduação (Tapauá e Manaus)", items: ["Pós-graduação em Educação Especial e Intervenções (TEA)"].concat(AREAS.map(a => "Pós-graduação em " + a[0])) },
+  { label: "Extensão", items: ["Curso de Extensão (consultar cursos disponíveis)"] }
+];
+const STEPS = [
+  { eyebrow: "Curso", title: "Qual curso você deseja cursar?", fields: [
+    { name: "curso", label: "Curso pretendido *", kind: "gselect", groups: CURSO_GROUPS, err: "Selecione o curso pretendido." }
+  ]},
+  { eyebrow: "Dados pessoais", title: "Seus dados pessoais", fields: [
+    { name: "nome", label: "Nome completo *", kind: "input", type: "text", err: "Informe seu nome completo." },
+    { name: "nascimento", label: "Data de nascimento *", kind: "input", type: "date", err: "Informe sua data de nascimento." },
+    { name: "naturalidade", label: "Naturalidade *", kind: "input", type: "text", placeholder: "Cidade / UF", err: "Informe sua naturalidade." },
+    { name: "estadoCivil", label: "Estado civil *", kind: "select", options: ["Solteiro(a)","Casado(a)","Divorciado(a)","Viúvo(a)","União estável"], err: "Selecione seu estado civil." },
+    { name: "rg", label: "RG *", kind: "input", type: "text", mode: "numeric", err: "Informe o número do RG." },
+    { name: "orgaoEmissor", label: "Órgão emissor *", kind: "input", type: "text", placeholder: "Ex: SSP/AM", err: "Informe o órgão emissor." },
+    { name: "cpf", label: "CPF *", kind: "input", type: "text", mode: "numeric", placeholder: "000.000.000-00", mask: "cpf", validate: "cpf", err: "Informe um CPF válido." }
+  ]},
+  { eyebrow: "Contato", title: "Seus dados de contato", fields: [
+    { name: "telefone", label: "Telefone / WhatsApp *", kind: "input", type: "tel", mode: "numeric", placeholder: "(00) 00000-0000", mask: "tel", validate: "tel", err: "Informe um telefone válido." },
+    { name: "email", label: "E-mail *", kind: "input", type: "email", placeholder: "seu@email.com", validate: "email", err: "Informe um e-mail válido." }
+  ]},
+  { eyebrow: "Endereço", title: "Seu endereço", fields: [
+    { name: "endereco", label: "Endereço completo *", kind: "textarea", placeholder: "Rua, número, bairro, cidade / UF", err: "Informe seu endereço completo." }
+  ]},
+  { eyebrow: "Filiação", title: "Nome dos seus pais", fields: [
+    { name: "pai", label: "Pai *", kind: "input", type: "text", err: "Informe o nome do pai." },
+    { name: "mae", label: "Mãe *", kind: "input", type: "text", err: "Informe o nome da mãe." }
+  ]},
+  { eyebrow: "Situação profissional", title: "Você trabalha atualmente?", fields: [
+    { name: "trabalha", label: "Trabalha atualmente *", kind: "radio", options: ["Sim","Não"], err: "Selecione uma opção." },
+    { name: "funcao", label: "Função *", kind: "input", type: "text", showIf: ["trabalha","Sim"], err: "Informe sua função." }
+  ]},
+  { eyebrow: "Histórico escolar", title: "Seu Ensino Médio", fields: [
+    { name: "tipoEscola", label: "Estudou em escola *", kind: "radio", options: ["Pública","Privada"], err: "Selecione o tipo de escola." },
+    { name: "escola", label: "Escola em que concluiu o Ensino Médio *", kind: "input", type: "text", err: "Informe o nome da escola." },
+    { name: "anoConclusao", label: "Ano de conclusão *", kind: "input", type: "number", placeholder: "Ex: 2019", validate: "ano", err: "Informe um ano entre 1970 e 2035." }
+  ]},
+  { eyebrow: "Informações complementares", title: "Informações finais", fields: [
+    { name: "autodeclaracao", label: "Autodeclaração *", kind: "select", options: ["Branco","Pardo","Negro","Indígena","Amarelo","Prefiro não declarar"], err: "Selecione uma opção." },
+    { name: "cpfIndicador", label: "CPF de quem indicou a instituição", kind: "input", type: "text", mode: "numeric", placeholder: "000.000.000-00", mask: "cpf", optional: true, hint: "Opcional. Preencha caso tenha sido indicado por um aluno nosso." }
+  ]}
+];
+const REVIEW_MAP = [
+  ["Curso", 0, [["Curso pretendido","curso"]]],
+  ["Dados pessoais", 1, [["Nome","nome"],["Nascimento","nascimento"],["Naturalidade","naturalidade"],["Estado civil","estadoCivil"],["RG","rg"],["Órgão emissor","orgaoEmissor"],["CPF","cpf"]]],
+  ["Contato", 2, [["Telefone","telefone"],["E-mail","email"]]],
+  ["Endereço", 3, [["Endereço completo","endereco"]]],
+  ["Filiação", 4, [["Pai","pai"],["Mãe","mae"]]],
+  ["Situação profissional", 5, [["Trabalha atualmente","trabalha"],["Função","funcao"]]],
+  ["Histórico escolar", 6, [["Tipo de escola","tipoEscola"],["Escola","escola"],["Ano de conclusão","anoConclusao"]]],
+  ["Informações complementares", 7, [["Autodeclaração","autodeclaracao"],["CPF de quem indicou","cpfIndicador"]]]
+];
+const DOCS = ["Cópia do RG","Cópia do CPF","Cópia do comprovante de residência","Cópia autenticada do Certificado de Conclusão do Ensino Médio","Cópia autenticada do Histórico Escolar do Ensino Médio","Cópia da Certidão de Nascimento ou de Casamento"];
+
+function maskCPF(v) {
+  v = (v || "").replace(/\D/g, "").slice(0, 11);
+  v = v.replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  return v;
+}
+function maskTel(v) {
+  var d = (v || "").replace(/\D/g, "").slice(0, 11);
+  if (d.length > 10) return d.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+  if (d.length > 6) return d.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+  if (d.length > 2) return d.replace(/(\d{2})(\d{0,5})/, "($1) $2");
+  if (d.length > 0) return "(" + d;
+  return "";
+}
+function validCPF(v) {
+  var c = (v || "").replace(/\D/g, "");
+  if (c.length !== 11 || /^(\d)\1{10}$/.test(c)) return false;
+  var s = 0, i, d1, d2;
+  for (i = 0; i < 9; i++) s += parseInt(c[i], 10) * (10 - i);
+  d1 = (s * 10) % 11; if (d1 === 10) d1 = 0;
+  if (d1 !== parseInt(c[9], 10)) return false;
+  s = 0;
+  for (i = 0; i < 10; i++) s += parseInt(c[i], 10) * (11 - i);
+  d2 = (s * 10) % 11; if (d2 === 10) d2 = 0;
+  return d2 === parseInt(c[10], 10);
+}
+function fmtDate(v) {
+  if (!v) return "";
+  var p = v.split("-");
+  return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : v;
+}
+
+class Component extends DCLogic {
+  state = {
+    tab: "tecnologo", faq: -1, area: -1, teaOpen: false,
+    menuOpen: false, narrow: false, ready: false,
+    modalOpen: false, step: 0, vals: {}, errs: {}, consent: false, lastWaUrl: "",
+    active: "", scrolled: false
+  };
+
+  canvasRef = (node) => {
+    this.canvas = node;
+    if (!node) { this.flowOn = false; if (this.raf) cancelAnimationFrame(this.raf); return; }
+    this.startFlow();
+  };
+
+  startFlow() {
+    var canvas = this.canvas;
+    if (!canvas || this.flowOn) return;
+    this.flowOn = true;
+    var ctx = canvas.getContext("2d");
+    var w = 0, h = 0, paths = [];
+
+    var resize = () => {
+      var r = canvas.parentElement.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      w = r.width; h = r.height;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    this.flowResize = resize;
+    resize();
+    window.addEventListener("resize", resize);
+
+    var N = 46;
+    for (var i = 0; i < N; i++) {
+      paths.push({
+        left: i % 2 === 0,
+        y: (i / N) * 1.5 - 0.25,
+        t: Math.random(),
+        speed: 0.0013 + Math.random() * 0.0018,
+        gold: i % 3 !== 0
+      });
+    }
+
+    var bez = function (t, p0, p1, p2, p3) {
+      var u = 1 - t;
+      return {
+        x: u * u * u * p0.x + 3 * u * u * t * p1.x + 3 * u * t * t * p2.x + t * t * t * p3.x,
+        y: u * u * u * p0.y + 3 * u * u * t * p1.y + 3 * u * t * t * p2.y + t * t * t * p3.y
+      };
+    };
+
+    var draw = () => {
+      if (!this.canvas) { this.flowOn = false; return; }
+      var box = canvas.parentElement.getBoundingClientRect();
+      if (Math.abs(box.width - w) > 1 || Math.abs(box.height - h) > 1) resize();
+      ctx.clearRect(0, 0, w, h);
+      var cx = w * 0.5, cy = h * 0.52;
+      paths.forEach(function (p) {
+        var sy = p.y * h;
+        var p0 = { x: p.left ? -20 : w + 20, y: sy };
+        var p1 = { x: p.left ? cx * 0.5 : w - cx * 0.5, y: sy };
+        var p2 = { x: p.left ? cx * 0.82 : w - cx * 0.82, y: cy };
+        var p3 = { x: cx, y: cy };
+        ctx.beginPath();
+        ctx.moveTo(p0.x, p0.y);
+        ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+        ctx.strokeStyle = "rgba(255,193,7,0.13)";
+        ctx.lineWidth = 1;
+        ctx.setLineDash([1, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        p.t += p.speed;
+        if (p.t > 1) { p.t = 0; p.y += (Math.random() - 0.5) * 0.03; }
+        var pos = bez(p.t, p0, p1, p2, p3);
+        var fade = p.t > 0.85 ? (1 - p.t) / 0.15 : 1;
+        ctx.fillStyle = p.gold ? "rgba(255,193,7," + (0.85 * fade) + ")" : "rgba(239,90,43," + (0.9 * fade) + ")";
+        ctx.fillRect(pos.x - 1.5, pos.y - 1.5, 3, 3);
+      });
+      this.raf = requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ narrow: window.innerWidth < 1060, ready: true });
+    this.onResize();
+    window.addEventListener("resize", this.onResize);
+    this.onKey = (e) => {
+      if (e.key !== "Escape") return;
+      if (this.state.modalOpen) this.close();
+      else if (this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    window.addEventListener("keydown", this.onKey);
+    this.onScroll = () => {
+      var ids = ["sobre", "graduacao", "pos", "como-funciona", "faq", "contato"];
+      var active = "", probe = 140;
+      ids.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= probe) active = id;
+      });
+      var scrolled = window.scrollY > 20;
+      if (active !== this.state.active || scrolled !== this.state.scrolled) {
+        this.setState({ active: active, scrolled: scrolled });
+      }
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("keydown", this.onKey);
+    window.removeEventListener("scroll", this.onScroll);
+    if (this.flowResize) window.removeEventListener("resize", this.flowResize);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    this.canvas = null;
+  }
+
+  wa(text) {
+    var n = (this.props.whatsappNumero || "5597991571697").replace(/\D/g, "");
+    return "https://wa.me/" + n + (text ? "?text=" + encodeURIComponent(text) : "");
+  }
+  close = () => { this.setState({ modalOpen: false }); document.body.style.overflow = ""; };
+
+  open = (e) => {
+    var curso = e && e.currentTarget ? e.currentTarget.getAttribute("data-curso") : null;
+    var vals = Object.assign({}, this.state.vals);
+    if (curso) vals.curso = curso;
+    this.setState({ modalOpen: true, step: 0, vals: vals, errs: {}, consent: false });
+    document.body.style.overflow = "hidden";
+  };
+
+  visibleFields(step) {
+    var vals = this.state.vals;
+    return STEPS[step].fields.filter(function (f) {
+      return !f.showIf || vals[f.showIf[0]] === f.showIf[1];
+    });
+  }
+
+  validate(step) {
+    var vals = this.state.vals, errs = {}, ok = true;
+    this.visibleFields(step).forEach(function (f) {
+      var v = (vals[f.name] || "").trim();
+      var bad = false;
+      if (!v) bad = !f.optional;
+      else if (f.validate === "cpf") bad = !validCPF(v);
+      else if (f.validate === "email") bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      else if (f.validate === "tel") bad = v.replace(/\D/g, "").length < 10;
+      else if (f.validate === "ano") { var n = parseInt(v, 10); bad = !(n >= 1970 && n <= 2035); }
+      if (f.optional && v && f.validate === "cpf") bad = !validCPF(v);
+      if (bad) { errs[f.name] = f.err || "Campo obrigatório."; ok = false; }
+    });
+    this.setState({ errs: errs });
+    return ok;
+  }
+
+  next = () => {
+    var s = this.state.step;
+    if (s === STEPS.length) { this.send(); return; }
+    if (!this.validate(s)) return;
+    this.setState({ step: s + 1 });
+  };
+  back = () => { if (this.state.step > 0) this.setState({ step: this.state.step - 1, errs: {} }); };
+  goStep = (e) => {
+    var i = parseInt(e.currentTarget.getAttribute("data-step"), 10);
+    this.setState({ step: i, errs: {} });
+  };
+
+  val(name) {
+    var v = this.state.vals[name];
+    if (name === "nascimento") return fmtDate(v);
+    if (name === "funcao" && this.state.vals.trabalha !== "Sim") return "Não se aplica";
+    return v && String(v).trim() ? v : "Não informado";
+  }
+
+  send = () => {
+    var self = this;
+    var L = ["📚 NOVA SOLICITAÇÃO DE MATRÍCULA", "", "Polo CETAP · Tapauá (AM) · CeUnina", ""];
+    REVIEW_MAP.forEach(function (g) {
+      L.push("» " + g[0].toUpperCase());
+      g[2].forEach(function (r) { L.push(r[0] + ": " + self.val(r[1])); });
+      L.push("");
+    });
+    L.push("📎 DOCUMENTOS NECESSÁRIOS", "");
+    DOCS.forEach(function (d) { L.push("- " + d); });
+    var url = this.wa(L.join("\n"));
+    window.open(url, "_blank", "noopener");
+    this.setState({ step: STEPS.length + 1, lastWaUrl: url });
+  };
+
+  renderVals() {
+    var self = this, st = this.state, vals = st.vals;
+    var tabData = { tecnologo: TEC, bacharelado: BACH, licenciatura: LIC };
+    var notes = {
+      tecnologo: "Todos os cursos tecnólogos são ofertados 100% a distância (EAD).",
+      bacharelado: "Os bacharelados semipresenciais possuem atividades presenciais apoiadas pelo polo CETAP.",
+      licenciatura: "Todas as licenciaturas possuem estágio obrigatório, orientado pela equipe do CETAP."
+    };
+    var step = st.step, isReview = step === STEPS.length, isSuccess = step === STEPS.length + 1;
+    var isForm = step < STEPS.length;
+    var def = isForm ? STEPS[step] : null;
+
+    var stepFields = isForm ? this.visibleFields(step).map(function (f) {
+      return {
+        id: "f-" + f.name,
+        label: f.label,
+        placeholder: f.placeholder || "",
+        inputMode: f.mode || "text",
+        inputType: f.type || "text",
+        value: vals[f.name] || "",
+        hint: f.hint || "",
+        error: st.errs[f.name] || "",
+        isInput: f.kind === "input",
+        isTextarea: f.kind === "textarea",
+        isSelect: f.kind === "select",
+        isGroupSelect: f.kind === "gselect",
+        isRadio: f.kind === "radio",
+        options: f.options || [],
+        groups: f.groups || [],
+        pills: (f.options || []).map(function (o) {
+          return { v: o, on: vals[f.name] === o, off: vals[f.name] !== o };
+        }),
+        onChange: function (e) {
+          var v = e.target.value;
+          if (f.mask === "cpf") v = maskCPF(v);
+          if (f.mask === "tel") v = maskTel(v);
+          var nv = Object.assign({}, self.state.vals); nv[f.name] = v;
+          var ne = Object.assign({}, self.state.errs); delete ne[f.name];
+          self.setState({ vals: nv, errs: ne });
+        },
+        pick: function (e) {
+          var v = e.currentTarget.getAttribute("data-v");
+          var nv = Object.assign({}, self.state.vals); nv[f.name] = v;
+          var ne = Object.assign({}, self.state.errs); delete ne[f.name];
+          self.setState({ vals: nv, errs: ne });
+        }
+      };
+    }) : [];
+
+    var reviewGroups = REVIEW_MAP.map(function (g) {
+      return {
+        title: g[0], step: g[1], edit: self.goStep,
+        rows: g[2].map(function (r) { return { k: r[0], v: self.val(r[1]) }; })
+      };
+    });
+
+    var pct = isForm ? Math.round(((step + 1) / STEPS.length) * 100) : 100;
+
+    return {
+      canvasRef: this.canvasRef,
+      wide: st.ready ? !st.narrow : true,
+      narrow: st.narrow,
+      scrolled: st.scrolled,
+      flat: !st.scrolled,
+      menuOpen: st.menuOpen && st.narrow,
+      menuClosed: !(st.menuOpen && st.narrow),
+      toggleMenu: () => this.setState({ menuOpen: !st.menuOpen }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      navItems: [
+        { id: "sobre", label: "Sobre" },
+        { id: "graduacao", label: "Graduação" },
+        { id: "pos", label: "Pós-graduação" },
+        { id: "como-funciona", label: "Como funciona" },
+        { id: "faq", label: "Dúvidas" },
+        { id: "contato", label: "Contato" }
+      ].map(function (n) {
+        return {
+          href: "#" + n.id, label: n.label,
+          on: st.active === n.id, off: st.active !== n.id,
+          close: function () { self.setState({ menuOpen: false }); }
+        };
+      }),
+
+      waDisplay: this.props.whatsappExibicao || "(97) 99157-1697",
+      waGeral: this.wa(""),
+      waSite: this.wa("Olá! Vim pelo site e quero saber mais sobre os cursos da CeUnina pelo polo CETAP."),
+      waCursos: this.wa("Olá! Quero saber mais sobre os cursos da CeUnina pelo polo CETAP em Tapauá."),
+      waSegunda: this.wa("Olá! Tenho interesse na Segunda Licenciatura da CeUnina."),
+      waMatricula: this.wa("Olá! Quero começar minha matrícula na CeUnina pelo polo CETAP."),
+      showFloat: this.props.botaoFlutuante !== false,
+
+      tabs: [
+        { id: "tecnologo", label: "Tecnólogo" },
+        { id: "bacharelado", label: "Bacharelado" },
+        { id: "licenciatura", label: "Licenciatura" }
+      ].map(function (t) {
+        return {
+          id: t.id, label: t.label,
+          active: st.tab === t.id, inactive: st.tab !== t.id,
+          pick: function (e) { self.setState({ tab: e.currentTarget.getAttribute("data-tab") }); }
+        };
+      }),
+      courses: (tabData[st.tab] || TEC).map(function (c) { return { name: c[0], meta: c[1], price: c[2] }; }),
+      courseNote: notes[st.tab],
+
+      teaVisible: st.teaOpen ? TEA : TEA.slice(0, 9),
+      teaLabel: st.teaOpen ? "Mostrar menos" : "Ver os 28 cursos desta linha",
+      toggleTea: () => this.setState({ teaOpen: !st.teaOpen }),
+
+      areas: AREAS.map(function (a, i) {
+        return {
+          i: i, name: a[0], count: a[1].length + " cursos", items: a[1],
+          open: st.area === i,
+          toggle: function (e) {
+            var k = parseInt(e.currentTarget.getAttribute("data-i"), 10);
+            self.setState({ area: self.state.area === k ? -1 : k });
+          }
+        };
+      }),
+      faqs: FAQS.map(function (f, i) {
+        return {
+          i: i, q: f[0], a: f[1], open: st.faq === i,
+          toggle: function (e) {
+            var k = parseInt(e.currentTarget.getAttribute("data-i"), 10);
+            self.setState({ faq: self.state.faq === k ? -1 : k });
+          }
+        };
+      }),
+
+      openMatricula: this.open,
+      openMatriculaMenu: (e) => { this.setState({ menuOpen: false }); this.open(e); },
+      closeMatricula: this.close,
+      backdropClose: function (e) { if (e.target === e.currentTarget) self.close(); },
+      modalOpen: st.modalOpen,
+      isForm: isForm, isReview: isReview, isSuccess: isSuccess,
+      stepEyebrow: def ? def.eyebrow : "",
+      stepTitle: def ? def.title : "",
+      stepLabel: isSuccess ? "Matrícula pronta para envio" : (isReview ? "Revisão dos dados" : "Etapa " + (step + 1) + " de " + STEPS.length + ": " + def.eyebrow),
+      progress: pct,
+      stepFields: stepFields,
+      reviewGroups: reviewGroups,
+      consentOn: st.consent, consentOff: !st.consent,
+      toggleConsent: () => this.setState({ consent: !st.consent }),
+      showFoot: !isSuccess,
+      canGoBack: step > 0 && !isSuccess,
+      nextLabel: isReview ? "Enviar matrícula pelo WhatsApp" : (step === STEPS.length - 1 ? "Revisar matrícula" : "Continuar"),
+      nextEnabled: isReview ? st.consent : true,
+      nextDisabled: isReview ? !st.consent : false,
+      next: this.next, back: this.back,
+      lastWaUrl: st.lastWaUrl || this.wa("")
+    };
+  }
+}
+</script>
+</body>
+</html>
