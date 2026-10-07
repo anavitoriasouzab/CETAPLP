@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /_mobile_preview.html
+
+Sitemap: https://cetapcursos.com.br/sitemap.xml
